@@ -1,31 +1,759 @@
 {
-  "lastUpdated": "2024-12-23T10:00:00+09:00",
+  "lastUpdated": "2025-12-23T07:14:14.349Z",
   "source": "Yahoo Transit (関東エリア)",
   "disclaimer": "本データは社内利用限定です。再配布禁止。",
   "trains": [
-    { "id": "yamanote", "name": "山手線", "color": "#9acd32", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7281, 139.7103], [35.7319, 139.7184], [35.7367, 139.7258], [35.7298, 139.7429], [35.7130, 139.7535], [35.6917, 139.7600], [35.6684, 139.7587], [35.6553, 139.7494], [35.6459, 139.7386], [35.6459, 139.7101], [35.6580, 139.7016], [35.6762, 139.6999], [35.6917, 139.7003], [35.7069, 139.7024], [35.7281, 139.7103]] },
-    { "id": "chuo-rapid", "name": "中央線快速", "color": "#ff6600", "status": "delayed", "delayMinutes": 15, "description": "人身事故の影響で15分程度の遅れ", "section": "新宿〜立川", "coordinates": [[35.6813, 139.7660], [35.6809, 139.7364], [35.6658, 139.7093], [35.6639, 139.6844], [35.6996, 139.5814], [35.7010, 139.5446]] },
-    { "id": "chuo-sobu", "name": "中央・総武線各停", "color": "#ffd400", "status": "minor", "delayMinutes": 5, "description": "5分程度の遅れ", "section": null, "coordinates": [[35.7050, 139.8779], [35.6983, 139.8145], [35.6813, 139.7660], [35.6658, 139.7093], [35.6996, 139.5814]] },
-    { "id": "keihin-tohoku", "name": "京浜東北線", "color": "#00b2e5", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.9076, 139.6270], [35.7281, 139.7103], [35.6813, 139.7660], [35.6298, 139.7390], [35.5658, 139.7157]] },
-    { "id": "tokaido", "name": "東海道線", "color": "#f68b1e", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6813, 139.7660], [35.6298, 139.7390], [35.4667, 139.6223], [35.3397, 139.5500]] },
-    { "id": "yokosuka", "name": "横須賀線", "color": "#0066cc", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6813, 139.7660], [35.6298, 139.7390], [35.4667, 139.6223], [35.2833, 139.6667]] },
-    { "id": "saikyo", "name": "埼京線", "color": "#00a650", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.9134, 139.6332], [35.7281, 139.7103], [35.6580, 139.7016], [35.6195, 139.7005]] },
-    { "id": "metro-ginza", "name": "銀座線", "color": "#ff9500", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7110, 139.7966], [35.7034, 139.7714], [35.6813, 139.7660], [35.6684, 139.7587], [35.6580, 139.7016]] },
-    { "id": "metro-marunouchi", "name": "丸ノ内線", "color": "#f62e36", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7281, 139.7103], [35.7069, 139.7517], [35.6813, 139.7660], [35.6684, 139.7587], [35.6553, 139.7494], [35.6459, 139.7386]] },
-    { "id": "metro-hibiya", "name": "日比谷線", "color": "#b5b5ac", "status": "suspended", "delayMinutes": null, "description": "車両点検のため運転見合わせ", "section": "北千住〜中目黒", "coordinates": [[35.7539, 139.8052], [35.7130, 139.7793], [35.6813, 139.7660], [35.6580, 139.7016], [35.6298, 139.7155]] },
-    { "id": "metro-tozai", "name": "東西線", "color": "#009bbf", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6745, 139.8145], [35.6813, 139.7660], [35.7034, 139.7508], [35.7110, 139.6243]] },
-    { "id": "metro-chiyoda", "name": "千代田線", "color": "#00bb85", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7677, 139.8234], [35.7367, 139.7429], [35.6813, 139.7660], [35.6298, 139.7155]] },
-    { "id": "metro-yurakucho", "name": "有楽町線", "color": "#c1a470", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7551, 139.6995], [35.7281, 139.7103], [35.6813, 139.7660], [35.6459, 139.7101]] },
-    { "id": "metro-hanzomon", "name": "半蔵門線", "color": "#8f76d6", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7110, 139.8100], [35.6813, 139.7660], [35.6580, 139.7016], [35.6267, 139.6402]] },
-    { "id": "metro-namboku", "name": "南北線", "color": "#00ac9b", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7815, 139.7348], [35.7281, 139.7103], [35.6813, 139.7660], [35.6337, 139.7406]] },
-    { "id": "metro-fukutoshin", "name": "副都心線", "color": "#9c5e31", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7551, 139.6995], [35.7281, 139.7103], [35.6917, 139.7003], [35.6580, 139.7016]] },
-    { "id": "toei-asakusa", "name": "都営浅草線", "color": "#e85298", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7860, 139.8082], [35.7034, 139.7714], [35.6580, 139.7016], [35.5886, 139.7390]] },
-    { "id": "toei-mita", "name": "都営三田線", "color": "#0079c2", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7816, 139.6836], [35.7281, 139.7103], [35.6580, 139.7016], [35.6298, 139.7155]] },
-    { "id": "toei-shinjuku", "name": "都営新宿線", "color": "#6cbb5a", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6896, 139.6998], [35.6917, 139.7600], [35.7034, 139.8370]] },
-    { "id": "toei-oedo", "name": "都営大江戸線", "color": "#b6007a", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.7110, 139.7966], [35.6917, 139.7003], [35.6580, 139.7016], [35.6684, 139.7587], [35.7069, 139.7517]] },
-    { "id": "keio", "name": "京王線", "color": "#dd0077", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6896, 139.6998], [35.6779, 139.6568], [35.6593, 139.5882], [35.6512, 139.5442]] },
-    { "id": "odakyu", "name": "小田急小田原線", "color": "#2b5caa", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6896, 139.6998], [35.6308, 139.6173], [35.5424, 139.4463], [35.4658, 139.3423]] },
-    { "id": "tokyu-toyoko", "name": "東急東横線", "color": "#ee1155", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6580, 139.7016], [35.6339, 139.6991], [35.6064, 139.6685], [35.5755, 139.6587], [35.5162, 139.6165]] },
-    { "id": "tokyu-denentoshi", "name": "東急田園都市線", "color": "#00a040", "status": "normal", "delayMinutes": 0, "description": "平常どおり運転しています", "section": null, "coordinates": [[35.6580, 139.7016], [35.6267, 139.6402], [35.5770, 139.5935], [35.5091, 139.5171]] }
+    {
+      "id": "yamanote",
+      "name": "山手線",
+      "color": "#9acd32",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.7319,
+          139.7184
+        ],
+        [
+          35.7367,
+          139.7258
+        ],
+        [
+          35.7298,
+          139.7429
+        ],
+        [
+          35.713,
+          139.7535
+        ],
+        [
+          35.6917,
+          139.76
+        ],
+        [
+          35.6684,
+          139.7587
+        ],
+        [
+          35.6553,
+          139.7494
+        ],
+        [
+          35.6459,
+          139.7386
+        ],
+        [
+          35.6459,
+          139.7101
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6762,
+          139.6999
+        ],
+        [
+          35.6917,
+          139.7003
+        ],
+        [
+          35.7069,
+          139.7024
+        ],
+        [
+          35.7281,
+          139.7103
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.348Z"
+    },
+    {
+      "id": "chuo-rapid",
+      "name": "中央線快速",
+      "color": "#ff6600",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6809,
+          139.7364
+        ],
+        [
+          35.6658,
+          139.7093
+        ],
+        [
+          35.6639,
+          139.6844
+        ],
+        [
+          35.6996,
+          139.5814
+        ],
+        [
+          35.701,
+          139.5446
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.348Z"
+    },
+    {
+      "id": "chuo-sobu",
+      "name": "中央・総武線各停",
+      "color": "#ffd400",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.705,
+          139.8779
+        ],
+        [
+          35.6983,
+          139.8145
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6658,
+          139.7093
+        ],
+        [
+          35.6996,
+          139.5814
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.348Z"
+    },
+    {
+      "id": "keihin-tohoku",
+      "name": "京浜東北線",
+      "color": "#00b2e5",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.9076,
+          139.627
+        ],
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6298,
+          139.739
+        ],
+        [
+          35.5658,
+          139.7157
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.348Z"
+    },
+    {
+      "id": "tokaido",
+      "name": "東海道線",
+      "color": "#f68b1e",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6298,
+          139.739
+        ],
+        [
+          35.4667,
+          139.6223
+        ],
+        [
+          35.3397,
+          139.55
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.348Z"
+    },
+    {
+      "id": "yokosuka",
+      "name": "横須賀線",
+      "color": "#0066cc",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6298,
+          139.739
+        ],
+        [
+          35.4667,
+          139.6223
+        ],
+        [
+          35.2833,
+          139.6667
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "saikyo",
+      "name": "埼京線",
+      "color": "#00a650",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.9134,
+          139.6332
+        ],
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6195,
+          139.7005
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-ginza",
+      "name": "銀座線",
+      "color": "#ff9500",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.711,
+          139.7966
+        ],
+        [
+          35.7034,
+          139.7714
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6684,
+          139.7587
+        ],
+        [
+          35.658,
+          139.7016
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-marunouchi",
+      "name": "丸ノ内線",
+      "color": "#f62e36",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.7069,
+          139.7517
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6684,
+          139.7587
+        ],
+        [
+          35.6553,
+          139.7494
+        ],
+        [
+          35.6459,
+          139.7386
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-hibiya",
+      "name": "日比谷線",
+      "color": "#b5b5ac",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7539,
+          139.8052
+        ],
+        [
+          35.713,
+          139.7793
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6298,
+          139.7155
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-tozai",
+      "name": "東西線",
+      "color": "#009bbf",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6745,
+          139.8145
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.7034,
+          139.7508
+        ],
+        [
+          35.711,
+          139.6243
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-chiyoda",
+      "name": "千代田線",
+      "color": "#00bb85",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7677,
+          139.8234
+        ],
+        [
+          35.7367,
+          139.7429
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6298,
+          139.7155
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-yurakucho",
+      "name": "有楽町線",
+      "color": "#c1a470",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7551,
+          139.6995
+        ],
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6459,
+          139.7101
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-hanzomon",
+      "name": "半蔵門線",
+      "color": "#8f76d6",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.711,
+          139.81
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6267,
+          139.6402
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-namboku",
+      "name": "南北線",
+      "color": "#00ac9b",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7815,
+          139.7348
+        ],
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.6813,
+          139.766
+        ],
+        [
+          35.6337,
+          139.7406
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "metro-fukutoshin",
+      "name": "副都心線",
+      "color": "#9c5e31",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7551,
+          139.6995
+        ],
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.6917,
+          139.7003
+        ],
+        [
+          35.658,
+          139.7016
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "toei-asakusa",
+      "name": "都営浅草線",
+      "color": "#e85298",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.786,
+          139.8082
+        ],
+        [
+          35.7034,
+          139.7714
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.5886,
+          139.739
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "toei-mita",
+      "name": "都営三田線",
+      "color": "#0079c2",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.7816,
+          139.6836
+        ],
+        [
+          35.7281,
+          139.7103
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6298,
+          139.7155
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "toei-shinjuku",
+      "name": "都営新宿線",
+      "color": "#6cbb5a",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6896,
+          139.6998
+        ],
+        [
+          35.6917,
+          139.76
+        ],
+        [
+          35.7034,
+          139.837
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "toei-oedo",
+      "name": "都営大江戸線",
+      "color": "#b6007a",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.711,
+          139.7966
+        ],
+        [
+          35.6917,
+          139.7003
+        ],
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6684,
+          139.7587
+        ],
+        [
+          35.7069,
+          139.7517
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "keio",
+      "name": "京王線",
+      "color": "#dd0077",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6896,
+          139.6998
+        ],
+        [
+          35.6779,
+          139.6568
+        ],
+        [
+          35.6593,
+          139.5882
+        ],
+        [
+          35.6512,
+          139.5442
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "odakyu",
+      "name": "小田急小田原線",
+      "color": "#2b5caa",
+      "status": "normal",
+      "delayMinutes": 0,
+      "description": "平常どおり運転しています",
+      "section": null,
+      "coordinates": [
+        [
+          35.6896,
+          139.6998
+        ],
+        [
+          35.6308,
+          139.6173
+        ],
+        [
+          35.5424,
+          139.4463
+        ],
+        [
+          35.4658,
+          139.3423
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "tokyu-toyoko",
+      "name": "東急東横線",
+      "color": "#ee1155",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6339,
+          139.6991
+        ],
+        [
+          35.6064,
+          139.6685
+        ],
+        [
+          35.5755,
+          139.6587
+        ],
+        [
+          35.5162,
+          139.6165
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    },
+    {
+      "id": "tokyu-denentoshi",
+      "name": "東急田園都市線",
+      "color": "#00a040",
+      "status": "minor",
+      "delayMinutes": 10,
+      "description": "10分程度の遅れが出ています",
+      "section": null,
+      "coordinates": [
+        [
+          35.658,
+          139.7016
+        ],
+        [
+          35.6267,
+          139.6402
+        ],
+        [
+          35.577,
+          139.5935
+        ],
+        [
+          35.5091,
+          139.5171
+        ]
+      ],
+      "updatedAt": "2025-12-23T07:14:14.349Z"
+    }
   ]
 }
