@@ -953,6 +953,19 @@
             }
         }
 
+        async function loadTrainsFromJSON() {
+            try {
+                const response = await fetch(CONFIG.DATA_BASE_URL + 'trains.json');
+                if (!response.ok) throw new Error('Failed to load trains');
+                const data = await response.json();
+                console.log(`電車データ読込: ${data.lastUpdated} (${data.source})`);
+                return data.trains;
+            } catch (error) {
+                console.warn('JSONから電車データを読み込めませんでした。デモデータを使用します。', error);
+                return DEMO_TRAIN_LINES;
+            }
+        }
+
         // ============================================
         // ODPT API Functions
         // ============================================
@@ -1317,7 +1330,8 @@
                 const data = await fetchODPTData();
                 state.trainLines = parseODPTTrainInfo(data);
             } else {
-                state.trainLines = DEMO_TRAIN_LINES;
+                // JSONファイルから電車データを読み込み（スクレイピングデータ）
+                state.trainLines = await loadTrainsFromJSON();
             }
 
             // Load regulations and roads from JSON files
