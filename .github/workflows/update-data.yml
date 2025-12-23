@@ -1,0 +1,24 @@
+name: Update Traffic Data
+
+  on:
+    schedule:
+      - cron: '0 21,23,3,9,13 * * *'
+    workflow_dispatch:
+
+  jobs:
+    scrape:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+        - run: node scripts/scrape.js
+          continue-on-error: true
+        - name: Commit changes
+          run: |
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+            git diff --quiet data/ || (git add data/ && git commit -m "Update traffic data [automated]" && git push)
