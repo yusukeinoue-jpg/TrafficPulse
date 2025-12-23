@@ -851,7 +851,8 @@
         const CONFIG = {
             ODPT_API_BASE: 'https://api.odpt.org/api/v4',
             REFRESH_INTERVAL: 60000, // 1 minute
-            STORAGE_KEY: 'trafficpulse_api_key'
+            STORAGE_KEY: 'trafficpulse_api_key',
+            DATA_BASE_URL: 'data/' // JSONファイルのパス
         };
 
         // Railway line metadata (for visualization)
@@ -921,6 +922,36 @@
         const trainLayer = L.layerGroup().addTo(map);
         const regulationLayer = L.layerGroup().addTo(map);
         const roadLayer = L.layerGroup().addTo(map);
+
+        // ============================================
+        // JSON Data Loading Functions
+        // ============================================
+
+        async function loadRegulationsFromJSON() {
+            try {
+                const response = await fetch(CONFIG.DATA_BASE_URL + 'regulations.json');
+                if (!response.ok) throw new Error('Failed to load regulations');
+                const data = await response.json();
+                // Filter active regulations only
+                return data.regulations.filter(r => r.active);
+            } catch (error) {
+                console.warn('JSONから交通規制データを読み込めませんでした。デモデータを使用します。', error);
+                return DEMO_REGULATIONS;
+            }
+        }
+
+        async function loadRoadsFromJSON() {
+            try {
+                const response = await fetch(CONFIG.DATA_BASE_URL + 'roads.json');
+                if (!response.ok) throw new Error('Failed to load roads');
+                const data = await response.json();
+                // Filter active roads only
+                return data.roads.filter(r => r.active);
+            } catch (error) {
+                console.warn('JSONから道路情報を読み込めませんでした。デモデータを使用します。', error);
+                return DEMO_ROAD_CONGESTION;
+            }
+        }
 
         // ============================================
         // ODPT API Functions
@@ -1279,12 +1310,21 @@
         }
 
         async function refreshData() {
+            showLoading(true);
+
+            // Load train data
             if (state.useRealData && state.apiKey) {
                 const data = await fetchODPTData();
                 state.trainLines = parseODPTTrainInfo(data);
             } else {
                 state.trainLines = DEMO_TRAIN_LINES;
             }
+
+            // Load regulations and roads from JSON files
+            state.regulations = await loadRegulationsFromJSON();
+            state.roadCongestion = await loadRoadsFromJSON();
+
+            showLoading(false);
 
             drawTrainLines();
             drawRegulations();

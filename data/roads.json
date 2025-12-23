@@ -1,0 +1,48 @@
+{
+  "lastUpdated": "2024-12-23T10:00:00+09:00",
+  "updatedBy": "管理者",
+  "roads": [
+    {
+      "id": "road1",
+      "name": "首都高速3号渋谷線",
+      "status": "heavy",
+      "speed": 15,
+      "normalSpeed": 60,
+      "description": "事故渋滞 約3km",
+      "coordinates": [
+        [35.6459, 139.7101],
+        [35.6350, 139.6850],
+        [35.6280, 139.6600]
+      ],
+      "active": true
+    },
+    {
+      "id": "road2",
+      "name": "国道246号",
+      "status": "moderate",
+      "speed": 25,
+      "normalSpeed": 40,
+      "description": "自然渋滞 約1.5km",
+      "coordinates": [
+        [35.6580, 139.7016],
+        [35.6480, 139.6750],
+        [35.6400, 139.6500]
+      ],
+      "active": true
+    },
+    {
+      "id": "road3",
+      "name": "環状七号線",
+      "status": "light",
+      "speed": 35,
+      "normalSpeed": 50,
+      "description": "やや混雑",
+      "coordinates": [
+        [35.7200, 139.6600],
+        [35.6800, 139.6300],
+        [35.6400, 139.6200]
+      ],
+      "active": false
+    }
+  ]
+}
