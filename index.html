@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrafficPulse - リアルタイム交通情報</title>
 
-    <!-- Leaflet CSS (Free & Open Source) -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <!-- Google Fonts -->
@@ -30,13 +30,10 @@
             --yellow: #ffcc00;
             --orange: #ff8800;
             --red: #ff3366;
+            --blue: #0088ff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -46,11 +43,7 @@
             height: 100vh;
         }
 
-        #map {
-            width: 100%;
-            height: 100vh;
-            z-index: 1;
-        }
+        #map { width: 100%; height: 100vh; z-index: 1; }
 
         .leaflet-tile-pane {
             filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1);
@@ -62,9 +55,7 @@
             font-size: 10px !important;
         }
 
-        .leaflet-control-attribution a {
-            color: var(--cyan) !important;
-        }
+        .leaflet-control-attribution a { color: var(--cyan) !important; }
 
         .leaflet-control-zoom a {
             background: var(--bg-card) !important;
@@ -94,11 +85,7 @@
             border-radius: 0 0 16px 16px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; }
 
         .logo-icon {
             width: 32px;
@@ -126,33 +113,22 @@
             align-items: center;
             gap: 6px;
             padding: 4px 10px;
-            background: rgba(255, 51, 102, 0.15);
-            border: 1px solid var(--red);
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid var(--green);
             border-radius: 20px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
-            color: var(--red);
+            color: var(--green);
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .live-badge.demo {
-            background: rgba(255, 204, 0, 0.15);
-            border-color: var(--yellow);
-            color: var(--yellow);
         }
 
         .live-dot {
             width: 6px;
             height: 6px;
-            background: var(--red);
+            background: var(--green);
             border-radius: 50%;
             animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        .live-badge.demo .live-dot {
-            background: var(--yellow);
-            animation: none;
         }
 
         @keyframes pulse {
@@ -166,67 +142,12 @@
             color: var(--text-secondary);
         }
 
-        .data-source-toggle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .data-source-toggle:hover {
-            border-color: var(--cyan);
-        }
-
-        .data-source-toggle input {
-            display: none;
-        }
-
-        .toggle-slider {
-            width: 36px;
-            height: 20px;
-            background: var(--border-color);
-            border-radius: 10px;
-            position: relative;
-            transition: all 0.2s;
-        }
-
-        .toggle-slider::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 16px;
-            height: 16px;
-            background: var(--text-secondary);
-            border-radius: 50%;
-            transition: all 0.2s;
-        }
-
-        .data-source-toggle input:checked + .toggle-slider {
-            background: var(--cyan);
-        }
-
-        .data-source-toggle input:checked + .toggle-slider::after {
-            left: 18px;
-            background: var(--bg-primary);
-        }
-
-        .toggle-label {
-            font-size: 11px;
-            color: var(--text-secondary);
-        }
-
         .side-panel {
             position: fixed;
             top: 80px;
             left: 16px;
             bottom: 16px;
-            width: 340px;
+            width: 360px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -236,6 +157,7 @@
 
         .filter-tabs {
             display: flex;
+            flex-wrap: wrap;
             background: var(--bg-card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
@@ -246,25 +168,23 @@
 
         .filter-tab {
             flex: 1;
-            padding: 10px 12px;
+            min-width: 70px;
+            padding: 8px 10px;
             background: transparent;
             border: none;
             border-radius: 8px;
             color: var(--text-secondary);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 4px;
         }
 
-        .filter-tab:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
+        .filter-tab:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.05); }
 
         .filter-tab.active {
             background: var(--bg-secondary);
@@ -276,7 +196,7 @@
             background: var(--border-color);
             padding: 2px 6px;
             border-radius: 10px;
-            font-size: 11px;
+            font-size: 10px;
             font-family: 'JetBrains Mono', monospace;
         }
 
@@ -294,25 +214,16 @@
             padding-right: 4px;
         }
 
-        .cards-container::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .cards-container::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .cards-container::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 2px;
-        }
+        .cards-container::-webkit-scrollbar { width: 4px; }
+        .cards-container::-webkit-scrollbar-track { background: transparent; }
+        .cards-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
 
         .info-card {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -323,64 +234,52 @@
             box-shadow: 0 0 20px var(--cyan-glow);
         }
 
-        .info-card.train {
-            border-left: 3px solid var(--line-color, var(--cyan));
-        }
-
-        .info-card.regulation {
-            border-left: 3px solid var(--magenta);
-        }
-
-        .info-card.road {
-            border-left: 3px solid var(--yellow);
-        }
+        .info-card.train { border-left: 3px solid var(--line-color, var(--cyan)); }
+        .info-card.bus { border-left: 3px solid var(--green); }
+        .info-card.flight { border-left: 3px solid var(--blue); }
+        .info-card.station { border-left: 3px solid var(--yellow); }
 
         .card-header {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .card-title {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
+        .card-title { font-weight: 700; font-size: 13px; color: var(--text-primary); }
 
         .card-status {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
-            padding: 3px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
+            white-space: nowrap;
         }
 
         .status-suspended { background: rgba(255, 51, 102, 0.2); color: var(--red); }
         .status-delayed { background: rgba(255, 136, 0, 0.2); color: var(--orange); }
         .status-minor { background: rgba(255, 204, 0, 0.2); color: var(--yellow); }
         .status-normal { background: rgba(0, 255, 136, 0.2); color: var(--green); }
-        .status-active { background: rgba(255, 0, 170, 0.2); color: var(--magenta); }
+        .status-departed { background: rgba(0, 136, 255, 0.2); color: var(--blue); }
+        .status-ontime { background: rgba(0, 255, 136, 0.2); color: var(--green); }
+        .status-boarding { background: rgba(255, 204, 0, 0.2); color: var(--yellow); }
 
         .card-description {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-secondary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             line-height: 1.5;
         }
 
         .card-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 11px;
+            gap: 10px;
+            font-size: 10px;
             color: var(--text-muted);
         }
 
-        .card-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .card-meta span { display: flex; align-items: center; gap: 4px; }
 
         .stats-panel {
             position: fixed;
@@ -392,32 +291,33 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
+            padding: 16px;
         }
 
         .stats-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
         }
 
         .stat-item {
             background: var(--bg-secondary);
             border-radius: 8px;
-            padding: 12px;
+            padding: 10px;
+            text-align: center;
         }
 
         .stat-label {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -426,7 +326,7 @@
 
         .stat-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
         }
 
@@ -435,47 +335,38 @@
         .stat-value.orange { color: var(--orange); }
         .stat-value.red { color: var(--red); }
         .stat-value.cyan { color: var(--cyan); }
-        .stat-value.magenta { color: var(--magenta); }
+        .stat-value.blue { color: var(--blue); }
 
         .legend {
-            margin-top: 16px;
-            padding-top: 16px;
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px solid var(--border-color);
         }
 
         .legend-title {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 8px;
         }
 
-        .legend-items {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        .legend-items { display: flex; flex-direction: column; gap: 4px; }
 
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-secondary);
         }
 
-        .legend-color {
-            width: 20px;
-            height: 4px;
-            border-radius: 2px;
-        }
-
-        .legend-color.suspended { background: var(--red); }
+        .legend-color { width: 16px; height: 4px; border-radius: 2px; }
+        .legend-color.train { background: var(--cyan); }
+        .legend-color.bus { background: var(--green); }
+        .legend-color.flight { background: var(--blue); }
+        .legend-color.station { background: var(--yellow); }
         .legend-color.delayed { background: var(--orange); }
-        .legend-color.minor { background: var(--yellow); }
-        .legend-color.normal { background: var(--green); }
-        .legend-color.regulation { background: var(--magenta); }
 
         .leaflet-popup-content-wrapper {
             background: var(--bg-card) !important;
@@ -485,7 +376,7 @@
         }
 
         .leaflet-popup-content {
-            margin: 16px !important;
+            margin: 14px !important;
             color: var(--text-primary) !important;
             font-family: 'Noto Sans JP', sans-serif !important;
         }
@@ -495,367 +386,345 @@
             border: 1px solid var(--border-color) !important;
         }
 
-        .popup-title {
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .popup-status {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .popup-info {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* API Setup Modal */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal h2 {
-            font-size: 20px;
-            margin-bottom: 16px;
-            color: var(--cyan);
-        }
-
-        .modal h3 {
-            font-size: 14px;
-            margin: 20px 0 8px;
-            color: var(--text-primary);
-        }
-
-        .modal p, .modal li {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .modal ol {
-            padding-left: 20px;
-        }
-
-        .modal a {
-            color: var(--cyan);
-            text-decoration: none;
-        }
-
-        .modal a:hover {
-            text-decoration: underline;
-        }
-
-        .modal code {
-            background: var(--bg-secondary);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--magenta);
-        }
-
-        .modal input[type="text"] {
-            width: 100%;
-            padding: 12px 16px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            margin: 12px 0;
-        }
-
-        .modal input[type="text"]:focus {
-            outline: none;
-            border-color: var(--cyan);
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .modal-btn {
-            flex: 1;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .modal-btn.primary {
-            background: var(--cyan);
-            color: var(--bg-primary);
-        }
-
-        .modal-btn.primary:hover {
-            background: #00c4e6;
-        }
-
-        .modal-btn.secondary {
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-        }
-
-        .modal-btn.secondary:hover {
-            border-color: var(--text-secondary);
-        }
+        .popup-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--text-primary); }
+        .popup-status { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500; margin-bottom: 6px; }
+        .popup-info { font-size: 11px; color: var(--text-secondary); line-height: 1.5; }
 
         .loading-indicator {
             position: fixed;
-            bottom: 100px;
+            bottom: 80px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 12px 24px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
         }
 
-        .loading-indicator.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .loading-indicator.active { opacity: 1; visibility: visible; }
 
         .loading-spinner {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border: 2px solid var(--border-color);
             border-top-color: var(--cyan);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* APIキーモーダル */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .modal-overlay.hidden { display: none; }
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--cyan);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 30px var(--cyan-glow);
+        }
+        .modal-content h2 { margin-bottom: 15px; color: var(--cyan); }
+        .modal-content p { margin-bottom: 15px; color: var(--text-secondary); font-size: 14px; }
+        .modal-content a { color: var(--cyan); }
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .modal-content input:focus { outline: none; border-color: var(--cyan); }
+        .modal-content button {
+            width: 100%;
+            padding: 12px;
+            background: var(--cyan);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .modal-content button:hover { background: #00b8d9; }
+        .modal-note { font-size: 11px; margin-top: 15px; color: var(--text-muted); }
+
+        .layer-controls {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            z-index: 1000;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .layer-controls-title {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .layer-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .layer-toggle:hover { color: var(--text-primary); }
+
+        .layer-toggle input { display: none; }
+
+        .layer-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .layer-toggle input:checked + .layer-checkbox {
+            background: var(--cyan);
+            border-color: var(--cyan);
+        }
+
+        .layer-toggle input:checked + .layer-checkbox::after {
+            content: '✓';
+            color: var(--bg-primary);
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .station-marker {
+            background: var(--yellow);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            width: 10px !important;
+            height: 10px !important;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .bus-marker {
+            background: var(--green);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            width: 8px !important;
+            height: 8px !important;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .airport-marker {
+            background: var(--blue);
+            border: 2px solid #fff;
+            border-radius: 8px;
+            padding: 4px 8px;
+            font-size: 14px;
+            box-shadow: 0 0 15px rgba(0, 136, 255, 0.5);
         }
 
         @media (max-width: 768px) {
-            .side-panel {
-                width: calc(100% - 32px);
-                bottom: auto;
-                max-height: 40vh;
-            }
-
-            .stats-panel {
-                top: auto;
-                bottom: 16px;
-                right: 16px;
-                left: 16px;
-                width: auto;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .header {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .data-source-toggle {
-                order: 10;
-                width: 100%;
-                justify-content: center;
-                margin-top: 8px;
-            }
+            .side-panel { width: calc(100% - 32px); bottom: auto; max-height: 35vh; }
+            .stats-panel { top: auto; bottom: 60px; right: 16px; left: 16px; width: auto; }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .header { flex-wrap: wrap; justify-content: center; padding: 10px 16px; }
+            .layer-controls { bottom: 200px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="logo">
             <div class="logo-icon">🚦</div>
             <span class="logo-text">TrafficPulse</span>
         </div>
-        <div class="live-badge demo" id="liveBadge">
+        <div class="live-badge" id="liveBadge">
             <span class="live-dot"></span>
-            <span id="dataSourceLabel">DEMO</span>
+            <span>LIVE</span>
         </div>
         <div class="current-time" id="currentTime">--:--:--</div>
-        <label class="data-source-toggle" id="dataToggle">
-            <input type="checkbox" id="useRealData">
-            <span class="toggle-slider"></span>
-            <span class="toggle-label">ODPT API</span>
-        </label>
     </header>
 
-    <!-- Side Panel -->
     <div class="side-panel">
         <div class="filter-tabs">
             <button class="filter-tab active" data-filter="all">
-                すべて <span class="count" id="countAll">0</span>
+                全て <span class="count" id="countAll">0</span>
             </button>
             <button class="filter-tab" data-filter="train">
                 🚃 電車 <span class="count" id="countTrain">0</span>
             </button>
-            <button class="filter-tab" data-filter="regulation">
-                🚧 規制 <span class="count" id="countRegulation">0</span>
+            <button class="filter-tab" data-filter="station">
+                🚉 駅 <span class="count" id="countStation">0</span>
             </button>
-            <button class="filter-tab" data-filter="road">
-                🚗 道路 <span class="count" id="countRoad">0</span>
+            <button class="filter-tab" data-filter="bus">
+                🚌 バス <span class="count" id="countBus">0</span>
+            </button>
+            <button class="filter-tab" data-filter="flight">
+                ✈️ 航空 <span class="count" id="countFlight">0</span>
             </button>
         </div>
-
         <div class="cards-container" id="cardsContainer"></div>
     </div>
 
-    <!-- Stats Panel -->
     <div class="stats-panel">
-        <div class="stats-title">運行状況サマリー</div>
+        <div class="stats-title">リアルタイムサマリー</div>
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-label">遅延路線</div>
-                <div class="stat-value orange" id="delayedLines">0</div>
+                <div class="stat-label">電車路線</div>
+                <div class="stat-value cyan" id="trainCount">0</div>
             </div>
             <div class="stat-item">
-                <div class="stat-label">運転見合</div>
-                <div class="stat-value red" id="suspendedLines">0</div>
+                <div class="stat-label">遅延</div>
+                <div class="stat-value orange" id="delayCount">0</div>
             </div>
             <div class="stat-item">
-                <div class="stat-label">交通規制</div>
-                <div class="stat-value magenta" id="activeRegulations">0</div>
+                <div class="stat-label">駅</div>
+                <div class="stat-value yellow" id="stationCount">0</div>
             </div>
             <div class="stat-item">
-                <div class="stat-label">渋滞箇所</div>
-                <div class="stat-value yellow" id="congestionPoints">0</div>
+                <div class="stat-label">バス停</div>
+                <div class="stat-value green" id="busStopCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">出発便</div>
+                <div class="stat-value blue" id="depFlightCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">到着便</div>
+                <div class="stat-value blue" id="arrFlightCount">0</div>
             </div>
         </div>
 
         <div class="legend">
             <div class="legend-title">凡例</div>
             <div class="legend-items">
-                <div class="legend-item">
-                    <span class="legend-color suspended"></span>
-                    運転見合わせ
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color delayed"></span>
-                    15分以上遅延
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color minor"></span>
-                    15分未満遅延
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color normal"></span>
-                    平常運転
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color regulation"></span>
-                    交通規制
-                </div>
+                <div class="legend-item"><span class="legend-color train"></span>電車路線</div>
+                <div class="legend-item"><span class="legend-color station"></span>駅</div>
+                <div class="legend-item"><span class="legend-color bus"></span>バス停</div>
+                <div class="legend-item"><span class="legend-color flight"></span>空港</div>
+                <div class="legend-item"><span class="legend-color delayed"></span>遅延・運休</div>
             </div>
         </div>
     </div>
 
-    <!-- API Setup Modal -->
-    <div class="modal-overlay" id="apiModal">
-        <div class="modal">
-            <h2>🔑 ODPT API 設定</h2>
-
-            <h3>Step 1: 開発者登録（無料）</h3>
-            <ol>
-                <li><a href="https://developer-tokyochallenge.odpt.org/" target="_blank">ODPT開発者サイト</a>にアクセス</li>
-                <li>「新規登録」からアカウント作成</li>
-                <li>登録完了まで約2営業日待機</li>
-            </ol>
-
-            <h3>Step 2: アクセストークン取得</h3>
-            <ol>
-                <li>開発者サイトにログイン</li>
-                <li>「アクセストークン」メニューから発行</li>
-                <li>発行されたトークンをコピー</li>
-            </ol>
-
-            <h3>Step 3: トークンを入力</h3>
-            <p>取得したアクセストークン（consumerKey）を入力してください：</p>
-            <input type="text" id="apiKeyInput" placeholder="acl:consumerKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-
-            <p style="margin-top: 12px; font-size: 11px; color: var(--text-muted);">
-                ※ トークンはローカルストレージに保存されます（サーバーには送信されません）
-            </p>
-
-            <div class="modal-buttons">
-                <button class="modal-btn secondary" onclick="closeModal()">デモモードを続ける</button>
-                <button class="modal-btn primary" onclick="saveApiKey()">保存して接続</button>
-            </div>
-        </div>
+    <div class="layer-controls">
+        <div class="layer-controls-title">レイヤー表示</div>
+        <label class="layer-toggle">
+            <input type="checkbox" id="layerTrain" checked>
+            <span class="layer-checkbox"></span>
+            🚃 電車路線
+        </label>
+        <label class="layer-toggle">
+            <input type="checkbox" id="layerStation" checked>
+            <span class="layer-checkbox"></span>
+            🚉 駅
+        </label>
+        <label class="layer-toggle">
+            <input type="checkbox" id="layerBus">
+            <span class="layer-checkbox"></span>
+            🚌 バス停
+        </label>
+        <label class="layer-toggle">
+            <input type="checkbox" id="layerFlight" checked>
+            <span class="layer-checkbox"></span>
+            ✈️ 空港
+        </label>
     </div>
 
-    <!-- Loading Indicator -->
     <div class="loading-indicator" id="loadingIndicator">
         <div class="loading-spinner"></div>
         <span>データを取得中...</span>
     </div>
 
-    <!-- Map -->
+    <!-- APIキー入力モーダル -->
+    <div id="apiKeyModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>🔑 APIキーを入力</h2>
+            <p>ODPT APIキーが必要です。<a href="https://developer.odpt.org/" target="_blank">developer.odpt.org</a> で無料取得できます。</p>
+            <input type="text" id="apiKeyInput" placeholder="APIキーを入力..." autocomplete="off">
+            <button id="apiKeySubmit">接続</button>
+            <p class="modal-note">※ キーはブラウザに保存され、外部には送信されません</p>
+        </div>
+    </div>
+
     <div id="map"></div>
 
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
         // ============================================
         // Configuration
         // ============================================
-
         const CONFIG = {
             ODPT_API_BASE: 'https://api.odpt.org/api/v4',
-            REFRESH_INTERVAL: 60000, // 1 minute
-            STORAGE_KEY: 'trafficpulse_api_key',
-            DATA_BASE_URL: 'data/' // JSONファイルのパス
+            API_KEY: localStorage.getItem('odpt_api_key') || '',
+            REFRESH_INTERVAL: 60000
         };
 
-        // Railway line metadata (for visualization)
+        // ============================================
+        // API Key Management
+        // ============================================
+        function showApiKeyModal() {
+            document.getElementById('apiKeyModal').classList.remove('hidden');
+        }
+        function hideApiKeyModal() {
+            document.getElementById('apiKeyModal').classList.add('hidden');
+        }
+        function initApiKey() {
+            if (!CONFIG.API_KEY) {
+                showApiKeyModal();
+            } else {
+                hideApiKeyModal();
+                initApp();
+            }
+        }
+        document.getElementById('apiKeySubmit').addEventListener('click', () => {
+            const key = document.getElementById('apiKeyInput').value.trim();
+            if (key) {
+                localStorage.setItem('odpt_api_key', key);
+                CONFIG.API_KEY = key;
+                hideApiKeyModal();
+                initApp();
+            }
+        });
+        document.getElementById('apiKeyInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('apiKeySubmit').click();
+        });
+
+        // Railway metadata
         const RAILWAY_META = {
             'odpt.Railway:TokyoMetro.Ginza': { name: '銀座線', color: '#ff9500', coords: [[35.7110, 139.7966], [35.7034, 139.7714], [35.6813, 139.7660], [35.6684, 139.7587], [35.6580, 139.7016]] },
             'odpt.Railway:TokyoMetro.Marunouchi': { name: '丸ノ内線', color: '#f62e36', coords: [[35.7281, 139.7103], [35.7069, 139.7517], [35.6813, 139.7660], [35.6684, 139.7587], [35.6553, 139.7494], [35.6459, 139.7386]] },
@@ -872,160 +741,114 @@
             'odpt.Railway:Toei.Oedo': { name: '都営大江戸線', color: '#b6007a', coords: [[35.7110, 139.7966], [35.6917, 139.7003], [35.6580, 139.7016], [35.6684, 139.7587], [35.7069, 139.7517]] }
         };
 
-        // ============================================
-        // Demo Data
-        // ============================================
-
-        const DEMO_TRAIN_LINES = [
-            { id: 'yamanote', name: '山手線', color: '#9acd32', status: 'delayed', delayMinutes: 8, description: '人身事故の影響で一部区間で遅延が発生しています', section: '池袋〜大塚間', coordinates: [[35.7281, 139.7103], [35.7319, 139.7184], [35.7367, 139.7258], [35.7298, 139.7429], [35.7130, 139.7535], [35.6917, 139.7600], [35.6684, 139.7587], [35.6553, 139.7494], [35.6459, 139.7386], [35.6459, 139.7101], [35.6580, 139.7016], [35.6762, 139.6999], [35.6917, 139.7003], [35.7069, 139.7024], [35.7281, 139.7103]] },
-            { id: 'chuo-rapid', name: '中央線快速', color: '#ff6600', status: 'suspended', delayMinutes: null, description: '沿線火災のため三鷹〜国分寺間で運転を見合わせています', section: '三鷹〜国分寺間', coordinates: [[35.6813, 139.7660], [35.6809, 139.7364], [35.6658, 139.7093], [35.6639, 139.6844], [35.6996, 139.5814], [35.7010, 139.5446], [35.7022, 139.4809]] },
-            { id: 'keio', name: '京王線', color: '#dd0077', status: 'minor', delayMinutes: 5, description: '車両点検の影響でダイヤに乱れが出ています', section: '新宿〜調布間', coordinates: [[35.6896, 139.6998], [35.6779, 139.6568], [35.6593, 139.5882], [35.6512, 139.5442]] },
-            { id: 'tokyu-toyoko', name: '東急東横線', color: '#ee1155', status: 'normal', delayMinutes: 0, description: '平常どおり運転しています', section: null, coordinates: [[35.6580, 139.7016], [35.6339, 139.6991], [35.6064, 139.6685], [35.5755, 139.6587], [35.5162, 139.6165]] },
-            { id: 'metro-ginza', name: '銀座線', color: '#ff9500', status: 'normal', delayMinutes: 0, description: '平常どおり運転しています', section: null, coordinates: [[35.7110, 139.7966], [35.7034, 139.7714], [35.6813, 139.7660], [35.6684, 139.7587], [35.6580, 139.7016]] },
-            { id: 'metro-marunouchi', name: '丸ノ内線', color: '#f62e36', status: 'normal', delayMinutes: 0, description: '平常どおり運転しています', section: null, coordinates: [[35.7281, 139.7103], [35.7069, 139.7517], [35.6813, 139.7660], [35.6684, 139.7587], [35.6553, 139.7494], [35.6459, 139.7386]] }
-        ];
-
-        const DEMO_REGULATIONS = [
-            { id: 'reg1', type: 'marathon', name: '東京マラソン2024', description: '交通規制: 都庁〜東京駅周辺の主要道路が通行止め', timeRange: '9:00〜16:00', area: [[35.6896, 139.6920], [35.6896, 139.7680], [35.6750, 139.7680], [35.6750, 139.6920]], center: [35.6823, 139.7300] },
-            { id: 'reg2', type: 'festival', name: '神田祭 神輿巡行', description: '神田明神周辺で交通規制を実施', timeRange: '10:00〜18:00', area: [[35.7020, 139.7650], [35.7020, 139.7720], [35.6960, 139.7720], [35.6960, 139.7650]], center: [35.6990, 139.7685] },
-            { id: 'reg3', type: 'construction', name: '首都高速 集中工事', description: '渋谷線 大橋JCT付近で車線規制', timeRange: '22:00〜翌5:00', area: [[35.6555, 139.6875], [35.6555, 139.6930], [35.6490, 139.6930], [35.6490, 139.6875]], center: [35.6522, 139.6902] }
-        ];
-
-        const DEMO_ROAD_CONGESTION = [
-            { id: 'road1', name: '首都高速3号渋谷線', status: 'heavy', speed: 15, normalSpeed: 60, description: '事故渋滞 約3km', coordinates: [[35.6459, 139.7101], [35.6350, 139.6850], [35.6280, 139.6600]] },
-            { id: 'road2', name: '国道246号', status: 'moderate', speed: 25, normalSpeed: 40, description: '自然渋滞 約1.5km', coordinates: [[35.6580, 139.7016], [35.6480, 139.6750], [35.6400, 139.6500]] },
-            { id: 'road3', name: '環状七号線', status: 'light', speed: 35, normalSpeed: 50, description: 'やや混雑', coordinates: [[35.7200, 139.6600], [35.6800, 139.6300], [35.6400, 139.6200]] }
-        ];
+        // Airport metadata
+        const AIRPORT_META = {
+            'odpt.Airport:HND': { name: '羽田空港', coords: [35.5494, 139.7798] },
+            'odpt.Airport:NRT': { name: '成田空港', coords: [35.7720, 140.3929] }
+        };
 
         // ============================================
         // State
         // ============================================
-
         let state = {
-            useRealData: false,
-            apiKey: localStorage.getItem(CONFIG.STORAGE_KEY) || '',
-            trainLines: [],
-            regulations: DEMO_REGULATIONS,
-            roadCongestion: DEMO_ROAD_CONGESTION,
-            refreshTimer: null
+            trainInfo: [],
+            stations: [],
+            busStops: [],
+            flightsDeparture: [],
+            flightsArrival: []
         };
 
         // ============================================
         // Map Initialization
         // ============================================
-
         const map = L.map('map', { center: [35.6812, 139.7671], zoom: 12, zoomControl: true });
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | ODPT API'
         }).addTo(map);
 
         const trainLayer = L.layerGroup().addTo(map);
-        const regulationLayer = L.layerGroup().addTo(map);
-        const roadLayer = L.layerGroup().addTo(map);
-
-        // ============================================
-        // JSON Data Loading Functions
-        // ============================================
-
-        async function loadRegulationsFromJSON() {
-            try {
-                const response = await fetch(CONFIG.DATA_BASE_URL + 'regulations.json');
-                if (!response.ok) throw new Error('Failed to load regulations');
-                const data = await response.json();
-                // Filter active regulations only
-                return data.regulations.filter(r => r.active);
-            } catch (error) {
-                console.warn('JSONから交通規制データを読み込めませんでした。デモデータを使用します。', error);
-                return DEMO_REGULATIONS;
-            }
-        }
-
-        async function loadRoadsFromJSON() {
-            try {
-                const response = await fetch(CONFIG.DATA_BASE_URL + 'roads.json');
-                if (!response.ok) throw new Error('Failed to load roads');
-                const data = await response.json();
-                // Filter active roads only
-                return data.roads.filter(r => r.active);
-            } catch (error) {
-                console.warn('JSONから道路情報を読み込めませんでした。デモデータを使用します。', error);
-                return DEMO_ROAD_CONGESTION;
-            }
-        }
-
-        async function loadTrainsFromJSON() {
-            try {
-                const response = await fetch(CONFIG.DATA_BASE_URL + 'trains.json');
-                if (!response.ok) throw new Error('Failed to load trains');
-                const data = await response.json();
-                console.log(`電車データ読込: ${data.lastUpdated} (${data.source})`);
-                return data.trains;
-            } catch (error) {
-                console.warn('JSONから電車データを読み込めませんでした。デモデータを使用します。', error);
-                return DEMO_TRAIN_LINES;
-            }
-        }
+        const stationLayer = L.layerGroup().addTo(map);
+        const busLayer = L.layerGroup();
+        const flightLayer = L.layerGroup().addTo(map);
 
         // ============================================
         // ODPT API Functions
         // ============================================
+        async function fetchAPI(endpoint, params = {}) {
+            const url = new URL(`${CONFIG.ODPT_API_BASE}/${endpoint}`);
+            url.searchParams.set('acl:consumerKey', CONFIG.API_KEY);
+            Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
 
-        async function fetchODPTData() {
-            if (!state.apiKey) return null;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`API Error: ${response.status}`);
+            return response.json();
+        }
 
-            showLoading(true);
-
+        async function fetchTrainInfo() {
             try {
-                // Fetch Tokyo Metro train information
-                const metroUrl = `${CONFIG.ODPT_API_BASE}/odpt:TrainInformation?odpt:operator=odpt.Operator:TokyoMetro&acl:consumerKey=${state.apiKey}`;
-                const toeiUrl = `${CONFIG.ODPT_API_BASE}/odpt:TrainInformation?odpt:operator=odpt.Operator:Toei&acl:consumerKey=${state.apiKey}`;
-
-                const [metroRes, toeiRes] = await Promise.all([
-                    fetch(metroUrl),
-                    fetch(toeiUrl)
+                const [metro, toei] = await Promise.all([
+                    fetchAPI('odpt:TrainInformation', { 'odpt:operator': 'odpt.Operator:TokyoMetro' }),
+                    fetchAPI('odpt:TrainInformation', { 'odpt:operator': 'odpt.Operator:Toei' })
                 ]);
-
-                if (!metroRes.ok || !toeiRes.ok) {
-                    throw new Error('API request failed');
-                }
-
-                const metroData = await metroRes.json();
-                const toeiData = await toeiRes.json();
-
-                return [...metroData, ...toeiData];
-            } catch (error) {
-                console.error('ODPT API Error:', error);
-                alert('APIエラー: ' + error.message + '\nデモモードに切り替えます。');
-                document.getElementById('useRealData').checked = false;
-                state.useRealData = false;
-                updateDataSourceUI();
-                return null;
-            } finally {
-                showLoading(false);
+                return [...metro, ...toei];
+            } catch (e) {
+                console.error('電車情報取得エラー:', e);
+                return [];
             }
         }
 
-        function parseODPTTrainInfo(data) {
-            if (!data) return DEMO_TRAIN_LINES;
+        async function fetchStations() {
+            try {
+                const [metro, toei] = await Promise.all([
+                    fetchAPI('odpt:Station', { 'odpt:operator': 'odpt.Operator:TokyoMetro' }),
+                    fetchAPI('odpt:Station', { 'odpt:operator': 'odpt.Operator:Toei' })
+                ]);
+                return [...metro, ...toei];
+            } catch (e) {
+                console.error('駅情報取得エラー:', e);
+                return [];
+            }
+        }
 
+        async function fetchBusStops() {
+            try {
+                return await fetchAPI('odpt:BusstopPole', { 'odpt:operator': 'odpt.Operator:Toei' });
+            } catch (e) {
+                console.error('バス停情報取得エラー:', e);
+                return [];
+            }
+        }
+
+        async function fetchFlights() {
+            try {
+                const [dep, arr] = await Promise.all([
+                    fetchAPI('odpt:FlightInformationDeparture'),
+                    fetchAPI('odpt:FlightInformationArrival')
+                ]);
+                return { departure: dep, arrival: arr };
+            } catch (e) {
+                console.error('航空情報取得エラー:', e);
+                return { departure: [], arrival: [] };
+            }
+        }
+
+        // ============================================
+        // Data Processing
+        // ============================================
+        function parseTrainInfo(data) {
             return data.map(info => {
                 const railwayId = info['odpt:railway'];
-                const meta = RAILWAY_META[railwayId] || { name: railwayId, color: '#00d9ff', coords: [] };
+                const meta = RAILWAY_META[railwayId] || { name: railwayId.split('.').pop(), color: '#00d9ff', coords: [] };
+                const text = info['odpt:trainInformationText']?.ja || info['odpt:trainInformationText'] || '';
 
-                const statusText = info['odpt:trainInformationText'] || '';
-                const isNormal = statusText.includes('平常') || statusText.includes('運転しています');
-                const isSuspended = statusText.includes('見合わせ') || statusText.includes('運休');
-                const hasDelay = statusText.includes('遅れ') || statusText.includes('遅延');
+                const isNormal = text.includes('平常');
+                const isSuspended = text.includes('見合わせ') || text.includes('運休');
+                const hasDelay = text.includes('遅れ') || text.includes('遅延');
 
-                let status = 'normal';
-                let delayMinutes = 0;
-
-                if (isSuspended) {
-                    status = 'suspended';
-                    delayMinutes = null;
-                } else if (hasDelay) {
-                    // Extract delay minutes if mentioned
-                    const match = statusText.match(/(\d+)分/);
+                let status = 'normal', delayMinutes = 0;
+                if (isSuspended) { status = 'suspended'; delayMinutes = null; }
+                else if (hasDelay) {
+                    const match = text.match(/(\d+)分/);
                     delayMinutes = match ? parseInt(match[1]) : 10;
                     status = delayMinutes >= 15 ? 'delayed' : 'minor';
                 }
@@ -1034,20 +857,82 @@
                     id: railwayId,
                     name: meta.name,
                     color: meta.color,
-                    status: status,
-                    delayMinutes: delayMinutes,
-                    description: statusText || '情報取得中...',
-                    section: null,
+                    status, delayMinutes,
+                    description: text || '運行情報なし',
                     coordinates: meta.coords,
-                    timestamp: info['dc:date'] || new Date().toISOString()
+                    timestamp: info['dc:date']
                 };
             }).filter(line => line.coordinates.length > 0);
+        }
+
+        function parseStations(data) {
+            return data.filter(s => s['geo:lat'] && s['geo:long']).map(s => ({
+                id: s['owl:sameAs'],
+                name: s['dc:title'] || s['odpt:stationTitle']?.ja || 'Unknown',
+                lat: s['geo:lat'],
+                lng: s['geo:long'],
+                code: s['odpt:stationCode'] || '',
+                railway: s['odpt:railway']
+            }));
+        }
+
+        function parseBusStops(data) {
+            return data.filter(b => b['geo:lat'] && b['geo:long']).slice(0, 500).map(b => ({
+                id: b['owl:sameAs'],
+                name: b['dc:title'] || 'バス停',
+                lat: b['geo:lat'],
+                lng: b['geo:long']
+            }));
+        }
+
+        function parseFlights(data) {
+            const now = new Date();
+            const formatTime = t => t || '--:--';
+
+            const filterRecent = (flights, key) => flights.filter(f => {
+                const time = f[key];
+                if (!time) return false;
+                const [h, m] = time.split(':').map(Number);
+                const flightTime = new Date(now);
+                flightTime.setHours(h, m, 0);
+                const diff = (flightTime - now) / 1000 / 60;
+                return diff >= -60 && diff <= 180;
+            }).slice(0, 30);
+
+            return {
+                departure: filterRecent(data.departure, 'odpt:scheduledDepartureTime').map(f => ({
+                    id: f['owl:sameAs'],
+                    flightNumber: f['odpt:flightNumber']?.[0] || 'Unknown',
+                    airline: (f['odpt:airline'] || '').replace('odpt.Operator:', ''),
+                    from: AIRPORT_META[f['odpt:departureAirport']]?.name || f['odpt:departureAirport'],
+                    to: (f['odpt:destinationAirport'] || '').replace('odpt.Airport:', ''),
+                    scheduledTime: formatTime(f['odpt:scheduledDepartureTime']),
+                    estimatedTime: formatTime(f['odpt:estimatedDepartureTime']),
+                    status: f['odpt:flightStatus']?.replace('odpt.FlightStatus:', '') || 'Scheduled',
+                    terminal: (f['odpt:departureAirportTerminal'] || '').replace(/odpt\.AirportTerminal:[^.]+\./, ''),
+                    gate: f['odpt:departureGate'] || '',
+                    type: 'departure',
+                    airport: f['odpt:departureAirport']
+                })),
+                arrival: filterRecent(data.arrival, 'odpt:scheduledArrivalTime').map(f => ({
+                    id: f['owl:sameAs'],
+                    flightNumber: f['odpt:flightNumber']?.[0] || 'Unknown',
+                    airline: (f['odpt:airline'] || '').replace('odpt.Operator:', ''),
+                    from: (f['odpt:originAirport'] || '').replace('odpt.Airport:', ''),
+                    to: AIRPORT_META[f['odpt:arrivalAirport']]?.name || f['odpt:arrivalAirport'],
+                    scheduledTime: formatTime(f['odpt:scheduledArrivalTime']),
+                    estimatedTime: formatTime(f['odpt:estimatedArrivalTime']),
+                    status: f['odpt:flightStatus']?.replace('odpt.FlightStatus:', '') || 'Scheduled',
+                    terminal: (f['odpt:arrivalAirportTerminal'] || '').replace(/odpt\.AirportTerminal:[^.]+\./, ''),
+                    type: 'arrival',
+                    airport: f['odpt:arrivalAirport']
+                }))
+            };
         }
 
         // ============================================
         // Rendering Functions
         // ============================================
-
         function getStatusColor(status) {
             switch (status) {
                 case 'suspended': return '#ff3366';
@@ -1068,195 +953,147 @@
 
         function drawTrainLines() {
             trainLayer.clearLayers();
-            const lines = state.useRealData ? state.trainLines : DEMO_TRAIN_LINES;
-
-            lines.forEach(line => {
+            state.trainInfo.forEach(line => {
                 if (line.coordinates.length < 2) return;
 
                 const color = getStatusColor(line.status);
                 const dashArray = line.status === 'suspended' ? '10, 10' : null;
-                const weight = line.status === 'suspended' || line.status === 'delayed' ? 5 : 3;
+                const weight = line.status !== 'normal' ? 5 : 3;
 
                 const polyline = L.polyline(line.coordinates, {
-                    color: color,
-                    weight: weight,
-                    opacity: 0.9,
-                    dashArray: dashArray,
-                    lineCap: 'round',
-                    lineJoin: 'round'
+                    color, weight, opacity: 0.9, dashArray,
+                    lineCap: 'round', lineJoin: 'round'
                 }).addTo(trainLayer);
 
-                const statusClass = line.status === 'suspended' ? 'status-suspended' :
-                                   line.status === 'delayed' ? 'status-delayed' :
-                                   line.status === 'minor' ? 'status-minor' : 'status-normal';
-
+                const statusClass = `status-${line.status}`;
                 polyline.bindPopup(`
                     <div class="popup-title" style="color: ${line.color}">${line.name}</div>
                     <span class="popup-status ${statusClass}">${getStatusLabel(line.status, line.delayMinutes)}</span>
+                    <div class="popup-info">${line.description}</div>
+                `);
+            });
+        }
+
+        function drawStations() {
+            stationLayer.clearLayers();
+            state.stations.forEach(station => {
+                const marker = L.circleMarker([station.lat, station.lng], {
+                    radius: 5,
+                    fillColor: '#ffcc00',
+                    color: '#fff',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(stationLayer);
+
+                marker.bindPopup(`
+                    <div class="popup-title">🚉 ${station.name}</div>
                     <div class="popup-info">
-                        ${line.section ? `<strong>区間:</strong> ${line.section}<br>` : ''}
-                        ${line.description}
+                        ${station.code ? `<strong>駅コード:</strong> ${station.code}<br>` : ''}
+                        <strong>路線:</strong> ${station.railway.split('.').pop()}
                     </div>
                 `);
-
-                polyline._data = line;
             });
         }
 
-        function drawRegulations() {
-            regulationLayer.clearLayers();
-
-            state.regulations.forEach(reg => {
-                const polygon = L.polygon(reg.area, {
-                    color: '#ff00aa',
-                    weight: 2,
-                    fillColor: '#ff00aa',
-                    fillOpacity: 0.2,
-                    dashArray: '5, 5'
-                }).addTo(regulationLayer);
-
-                const typeIcon = reg.type === 'marathon' ? '🏃' : reg.type === 'festival' ? '🎊' : '🔧';
-
-                polygon.bindPopup(`
-                    <div class="popup-title">${typeIcon} ${reg.name}</div>
-                    <span class="popup-status status-active">${reg.timeRange}</span>
-                    <div class="popup-info">${reg.description}</div>
-                `);
-
-                const marker = L.marker(reg.center, {
-                    icon: L.divIcon({
-                        className: 'regulation-marker',
-                        html: `<div style="background: rgba(255, 0, 170, 0.9); border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 0 20px rgba(255, 0, 170, 0.5);">${typeIcon}</div>`,
-                        iconSize: [32, 32],
-                        iconAnchor: [16, 16]
-                    })
-                }).addTo(regulationLayer);
-
-                marker.bindPopup(polygon.getPopup());
-                marker._data = reg;
-            });
-        }
-
-        function drawRoads() {
-            roadLayer.clearLayers();
-
-            state.roadCongestion.forEach(road => {
-                const color = road.status === 'heavy' ? '#ff3366' : road.status === 'moderate' ? '#ff8800' : '#ffcc00';
-
-                const polyline = L.polyline(road.coordinates, {
-                    color: color,
-                    weight: 6,
+        function drawBusStops() {
+            busLayer.clearLayers();
+            state.busStops.forEach(stop => {
+                const marker = L.circleMarker([stop.lat, stop.lng], {
+                    radius: 4,
+                    fillColor: '#00ff88',
+                    color: '#fff',
+                    weight: 1,
                     opacity: 0.8,
-                    lineCap: 'round',
-                    lineJoin: 'round'
-                }).addTo(roadLayer);
+                    fillOpacity: 0.7
+                }).addTo(busLayer);
 
-                const statusLabel = road.status === 'heavy' ? '渋滞' : road.status === 'moderate' ? '混雑' : 'やや混雑';
+                marker.bindPopup(`
+                    <div class="popup-title">🚌 ${stop.name}</div>
+                    <div class="popup-info">都営バス停留所</div>
+                `);
+            });
+        }
 
-                polyline.bindPopup(`
-                    <div class="popup-title">🚗 ${road.name}</div>
-                    <span class="popup-status" style="background: ${color}22; color: ${color}">${statusLabel}</span>
+        function drawAirports() {
+            flightLayer.clearLayers();
+
+            Object.entries(AIRPORT_META).forEach(([id, airport]) => {
+                const depCount = state.flightsDeparture.filter(f => f.airport === id).length;
+                const arrCount = state.flightsArrival.filter(f => f.airport === id).length;
+
+                const marker = L.marker(airport.coords, {
+                    icon: L.divIcon({
+                        className: 'airport-marker-container',
+                        html: `<div class="airport-marker">✈️</div>`,
+                        iconSize: [40, 40],
+                        iconAnchor: [20, 20]
+                    })
+                }).addTo(flightLayer);
+
+                marker.bindPopup(`
+                    <div class="popup-title">✈️ ${airport.name}</div>
                     <div class="popup-info">
-                        <strong>現在速度:</strong> ${road.speed} km/h (通常 ${road.normalSpeed} km/h)<br>
-                        ${road.description}
+                        <strong>出発便:</strong> ${depCount}便<br>
+                        <strong>到着便:</strong> ${arrCount}便
                     </div>
                 `);
-
-                polyline._data = road;
             });
         }
 
         function createInfoCards() {
             const container = document.getElementById('cardsContainer');
             container.innerHTML = '';
-            const lines = state.useRealData ? state.trainLines : DEMO_TRAIN_LINES;
 
-            // Train cards
-            lines.forEach(line => {
-                if (line.status !== 'normal') {
-                    const statusClass = line.status === 'suspended' ? 'status-suspended' :
-                                       line.status === 'delayed' ? 'status-delayed' : 'status-minor';
-
-                    const card = document.createElement('div');
-                    card.className = 'info-card train';
-                    card.style.setProperty('--line-color', line.color);
-                    card.dataset.type = 'train';
-                    card.dataset.id = line.id;
-
-                    card.innerHTML = `
-                        <div class="card-header">
-                            <span class="card-title">🚃 ${line.name}</span>
-                            <span class="card-status ${statusClass}">${getStatusLabel(line.status, line.delayMinutes)}</span>
-                        </div>
-                        <div class="card-description">${line.description}</div>
-                        <div class="card-meta">
-                            ${line.section ? `<span>📍 ${line.section}</span>` : ''}
-                        </div>
-                    `;
-
-                    card.addEventListener('click', () => {
-                        if (line.coordinates.length > 0) {
-                            const bounds = L.latLngBounds(line.coordinates);
-                            map.fitBounds(bounds, { padding: [50, 50] });
-                        }
-                    });
-
-                    container.appendChild(card);
-                }
-            });
-
-            // Regulation cards
-            state.regulations.forEach(reg => {
-                const typeIcon = reg.type === 'marathon' ? '🏃' : reg.type === 'festival' ? '🎊' : '🔧';
-
+            // Train cards (delayed/suspended only)
+            state.trainInfo.filter(l => l.status !== 'normal').forEach(line => {
+                const statusClass = `status-${line.status}`;
                 const card = document.createElement('div');
-                card.className = 'info-card regulation';
-                card.dataset.type = 'regulation';
-                card.dataset.id = reg.id;
+                card.className = 'info-card train';
+                card.style.setProperty('--line-color', line.color);
+                card.dataset.type = 'train';
 
                 card.innerHTML = `
                     <div class="card-header">
-                        <span class="card-title">${typeIcon} ${reg.name}</span>
-                        <span class="card-status status-active">規制中</span>
+                        <span class="card-title">🚃 ${line.name}</span>
+                        <span class="card-status ${statusClass}">${getStatusLabel(line.status, line.delayMinutes)}</span>
                     </div>
-                    <div class="card-description">${reg.description}</div>
-                    <div class="card-meta">
-                        <span>⏰ ${reg.timeRange}</span>
-                    </div>
+                    <div class="card-description">${line.description}</div>
                 `;
 
-                card.addEventListener('click', () => map.setView(reg.center, 15));
+                card.addEventListener('click', () => {
+                    if (line.coordinates.length > 0) {
+                        map.fitBounds(L.latLngBounds(line.coordinates), { padding: [50, 50] });
+                    }
+                });
                 container.appendChild(card);
             });
 
-            // Road cards
-            state.roadCongestion.forEach(road => {
-                const statusClass = road.status === 'heavy' ? 'status-suspended' :
-                                   road.status === 'moderate' ? 'status-delayed' : 'status-minor';
-                const statusLabel = road.status === 'heavy' ? '渋滞' :
-                                   road.status === 'moderate' ? '混雑' : 'やや混雑';
-
+            // Flight cards (departure)
+            state.flightsDeparture.slice(0, 10).forEach(flight => {
                 const card = document.createElement('div');
-                card.className = 'info-card road';
-                card.dataset.type = 'road';
-                card.dataset.id = road.id;
+                card.className = 'info-card flight';
+                card.dataset.type = 'flight';
+
+                const statusClass = flight.status.includes('Departed') ? 'status-departed' :
+                                   flight.status.includes('Boarding') ? 'status-boarding' : 'status-ontime';
 
                 card.innerHTML = `
                     <div class="card-header">
-                        <span class="card-title">🚗 ${road.name}</span>
-                        <span class="card-status ${statusClass}">${statusLabel}</span>
+                        <span class="card-title">✈️ ${flight.flightNumber}</span>
+                        <span class="card-status ${statusClass}">${flight.scheduledTime}</span>
                     </div>
-                    <div class="card-description">${road.description}</div>
+                    <div class="card-description">${flight.from} → ${flight.to}</div>
                     <div class="card-meta">
-                        <span>🚦 ${road.speed} km/h</span>
+                        <span>🏢 ${flight.terminal || '-'}</span>
+                        <span>🚪 ${flight.gate || '-'}</span>
                     </div>
                 `;
 
                 card.addEventListener('click', () => {
-                    const bounds = L.latLngBounds(road.coordinates);
-                    map.fitBounds(bounds, { padding: [50, 50] });
+                    const airport = AIRPORT_META[flight.airport];
+                    if (airport) map.setView(airport.coords, 13);
                 });
-
                 container.appendChild(card);
             });
 
@@ -1264,111 +1101,71 @@
         }
 
         function updateCounts() {
-            const lines = state.useRealData ? state.trainLines : DEMO_TRAIN_LINES;
-            const delayedTrains = lines.filter(l => l.status !== 'normal').length;
-            const suspendedTrains = lines.filter(l => l.status === 'suspended').length;
+            const delayedTrains = state.trainInfo.filter(l => l.status !== 'normal').length;
+            const totalTrains = state.trainInfo.length;
 
-            document.getElementById('countAll').textContent = delayedTrains + state.regulations.length + state.roadCongestion.length;
+            document.getElementById('countAll').textContent = delayedTrains + state.flightsDeparture.length;
             document.getElementById('countTrain').textContent = delayedTrains;
-            document.getElementById('countRegulation').textContent = state.regulations.length;
-            document.getElementById('countRoad').textContent = state.roadCongestion.length;
+            document.getElementById('countStation').textContent = state.stations.length;
+            document.getElementById('countBus').textContent = state.busStops.length;
+            document.getElementById('countFlight').textContent = state.flightsDeparture.length + state.flightsArrival.length;
 
-            document.getElementById('delayedLines').textContent = delayedTrains - suspendedTrains;
-            document.getElementById('suspendedLines').textContent = suspendedTrains;
-            document.getElementById('activeRegulations').textContent = state.regulations.length;
-            document.getElementById('congestionPoints').textContent = state.roadCongestion.length;
+            document.getElementById('trainCount').textContent = totalTrains;
+            document.getElementById('delayCount').textContent = delayedTrains;
+            document.getElementById('stationCount').textContent = state.stations.length;
+            document.getElementById('busStopCount').textContent = state.busStops.length;
+            document.getElementById('depFlightCount').textContent = state.flightsDeparture.length;
+            document.getElementById('arrFlightCount').textContent = state.flightsArrival.length;
         }
 
         // ============================================
         // UI Functions
         // ============================================
-
         function showLoading(show) {
             document.getElementById('loadingIndicator').classList.toggle('active', show);
         }
 
-        function updateDataSourceUI() {
-            const badge = document.getElementById('liveBadge');
-            const label = document.getElementById('dataSourceLabel');
-
-            if (state.useRealData && state.apiKey) {
-                badge.classList.remove('demo');
-                label.textContent = 'LIVE';
-            } else {
-                badge.classList.add('demo');
-                label.textContent = 'DEMO';
-            }
+        function updateClock() {
+            document.getElementById('currentTime').textContent = new Date().toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
         }
 
-        function openModal() {
-            document.getElementById('apiModal').classList.add('active');
-            document.getElementById('apiKeyInput').value = state.apiKey;
-        }
-
-        function closeModal() {
-            document.getElementById('apiModal').classList.remove('active');
-        }
-
-        function saveApiKey() {
-            const key = document.getElementById('apiKeyInput').value.trim();
-            if (key) {
-                state.apiKey = key;
-                localStorage.setItem(CONFIG.STORAGE_KEY, key);
-                closeModal();
-                document.getElementById('useRealData').checked = true;
-                state.useRealData = true;
-                updateDataSourceUI();
-                refreshData();
-            }
-        }
-
+        // ============================================
+        // Data Refresh
+        // ============================================
         async function refreshData() {
             showLoading(true);
 
-            // Load train data
-            if (state.useRealData && state.apiKey) {
-                const data = await fetchODPTData();
-                state.trainLines = parseODPTTrainInfo(data);
-            } else {
-                // JSONファイルから電車データを読み込み（スクレイピングデータ）
-                state.trainLines = await loadTrainsFromJSON();
+            try {
+                const [trainData, stationData, busData, flightData] = await Promise.all([
+                    fetchTrainInfo(),
+                    fetchStations(),
+                    fetchBusStops(),
+                    fetchFlights()
+                ]);
+
+                state.trainInfo = parseTrainInfo(trainData);
+                state.stations = parseStations(stationData);
+                state.busStops = parseBusStops(busData);
+                state.flightsDeparture = parseFlights(flightData).departure;
+                state.flightsArrival = parseFlights(flightData).arrival;
+
+                drawTrainLines();
+                drawStations();
+                drawBusStops();
+                drawAirports();
+                createInfoCards();
+
+                console.log(`データ更新完了: ${new Date().toLocaleTimeString()}`);
+            } catch (error) {
+                console.error('データ更新エラー:', error);
+            } finally {
+                showLoading(false);
             }
-
-            // Load regulations and roads from JSON files
-            state.regulations = await loadRegulationsFromJSON();
-            state.roadCongestion = await loadRoadsFromJSON();
-
-            showLoading(false);
-
-            drawTrainLines();
-            drawRegulations();
-            drawRoads();
-            createInfoCards();
         }
 
         // ============================================
         // Event Listeners
         // ============================================
-
-        document.getElementById('useRealData').addEventListener('change', async (e) => {
-            if (e.target.checked && !state.apiKey) {
-                e.target.checked = false;
-                openModal();
-                return;
-            }
-
-            state.useRealData = e.target.checked;
-            updateDataSourceUI();
-            await refreshData();
-        });
-
-        document.getElementById('dataToggle').addEventListener('click', (e) => {
-            if (e.target.tagName !== 'INPUT' && state.apiKey) return;
-            if (!state.apiKey && !document.getElementById('useRealData').checked) {
-                openModal();
-            }
-        });
-
         document.querySelectorAll('.filter-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
@@ -1378,53 +1175,35 @@
                 document.querySelectorAll('.info-card').forEach(card => {
                     card.style.display = (filter === 'all' || card.dataset.type === filter) ? 'block' : 'none';
                 });
-
-                if (filter === 'all') {
-                    map.addLayer(trainLayer);
-                    map.addLayer(regulationLayer);
-                    map.addLayer(roadLayer);
-                } else if (filter === 'train') {
-                    map.addLayer(trainLayer);
-                    map.removeLayer(regulationLayer);
-                    map.removeLayer(roadLayer);
-                } else if (filter === 'regulation') {
-                    map.removeLayer(trainLayer);
-                    map.addLayer(regulationLayer);
-                    map.removeLayer(roadLayer);
-                } else if (filter === 'road') {
-                    map.removeLayer(trainLayer);
-                    map.removeLayer(regulationLayer);
-                    map.addLayer(roadLayer);
-                }
             });
         });
 
-        // Clock
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('currentTime').textContent = now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        }
-
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Auto-refresh
-        setInterval(() => {
-            if (state.useRealData) refreshData();
-        }, CONFIG.REFRESH_INTERVAL);
+        document.getElementById('layerTrain').addEventListener('change', e => {
+            e.target.checked ? map.addLayer(trainLayer) : map.removeLayer(trainLayer);
+        });
+        document.getElementById('layerStation').addEventListener('change', e => {
+            e.target.checked ? map.addLayer(stationLayer) : map.removeLayer(stationLayer);
+        });
+        document.getElementById('layerBus').addEventListener('change', e => {
+            e.target.checked ? map.addLayer(busLayer) : map.removeLayer(busLayer);
+        });
+        document.getElementById('layerFlight').addEventListener('change', e => {
+            e.target.checked ? map.addLayer(flightLayer) : map.removeLayer(flightLayer);
+        });
 
         // ============================================
         // Initialize
         // ============================================
+        async function initApp() {
+            updateClock();
+            setInterval(updateClock, 1000);
 
-        (async function init() {
-            if (state.apiKey) {
-                document.getElementById('useRealData').checked = true;
-                state.useRealData = true;
-            }
-            updateDataSourceUI();
             await refreshData();
-        })();
+            setInterval(refreshData, CONFIG.REFRESH_INTERVAL);
+        }
+
+        // 起動時にAPIキーをチェック
+        initApiKey();
     </script>
 </body>
 </html>
