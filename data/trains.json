@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-27T21:13:39.323Z",
+  "lastUpdated": "2025-12-27T23:14:27.282Z",
   "source": "Yahoo Transit (関東エリア)",
   "disclaimer": "本データは社内利用限定です。再配布禁止。",
   "trains": [
@@ -73,7 +73,7 @@
           139.7103
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "chuo-rapid",
@@ -109,7 +109,7 @@
           139.5446
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "chuo-sobu",
@@ -141,7 +141,7 @@
           139.5814
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "keihin-tohoku",
@@ -173,7 +173,7 @@
           139.7157
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "tokaido",
@@ -201,7 +201,7 @@
           139.55
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "yokosuka",
@@ -229,7 +229,7 @@
           139.6667
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "saikyo",
@@ -257,15 +257,15 @@
           139.7005
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.279Z"
     },
     {
       "id": "metro-ginza",
       "name": "銀座線",
       "color": "#ff9500",
-      "status": "minor",
-      "delayMinutes": 10,
-      "description": "10分程度の遅れが出ています",
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
       "section": null,
       "coordinates": [
         [
@@ -289,15 +289,15 @@
           139.7016
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.322Z"
+      "updatedAt": "2025-12-27T23:14:27.280Z"
     },
     {
       "id": "metro-marunouchi",
       "name": "丸ノ内線",
       "color": "#f62e36",
-      "status": "minor",
-      "delayMinutes": 10,
-      "description": "10分程度の遅れが出ています",
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
       "section": null,
       "coordinates": [
         [
@@ -325,15 +325,15 @@
           139.7386
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-hibiya",
       "name": "日比谷線",
       "color": "#b5b5ac",
-      "status": "minor",
-      "delayMinutes": 10,
-      "description": "10分程度の遅れが出ています",
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
       "section": null,
       "coordinates": [
         [
@@ -357,15 +357,15 @@
           139.7155
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-tozai",
       "name": "東西線",
       "color": "#009bbf",
-      "status": "minor",
-      "delayMinutes": 10,
-      "description": "10分程度の遅れが出ています",
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
       "section": null,
       "coordinates": [
         [
@@ -385,16 +385,16 @@
           139.6243
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-chiyoda",
       "name": "千代田線",
       "color": "#00bb85",
-      "status": "minor",
-      "delayMinutes": 10,
-      "description": "10分程度の遅れが出ています",
-      "section": null,
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
+      "section": "href=\"/diainfo/27/0\">東海道本線[東京～熱海]</a></dd><dd><a",
       "coordinates": [
         [
           35.7677,
@@ -413,7 +413,7 @@
           139.7155
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-yurakucho",
@@ -441,15 +441,15 @@
           139.7101
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-hanzomon",
       "name": "半蔵門線",
       "color": "#8f76d6",
-      "status": "minor",
-      "delayMinutes": 10,
-      "description": "10分程度の遅れが出ています",
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
       "section": null,
       "coordinates": [
         [
@@ -469,7 +469,7 @@
           139.6402
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-namboku",
@@ -497,7 +497,7 @@
           139.7406
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "metro-fukutoshin",
@@ -525,7 +525,7 @@
           139.7016
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "toei-asakusa",
@@ -553,7 +553,7 @@
           139.739
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "toei-mita",
@@ -581,7 +581,7 @@
           139.7155
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "toei-shinjuku",
@@ -605,7 +605,7 @@
           139.837
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "toei-oedo",
@@ -637,7 +637,7 @@
           139.7517
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "keio",
@@ -665,16 +665,16 @@
           139.5442
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "odakyu",
       "name": "小田急小田原線",
       "color": "#2b5caa",
-      "status": "normal",
-      "delayMinutes": 0,
-      "description": "平常どおり運転しています",
-      "section": null,
+      "status": "suspended",
+      "delayMinutes": null,
+      "description": "運転を見合わせています",
+      "section": "href=\"/diainfo/50/0\">埼京川越線[羽沢横浜国大～川越]</a></td><td><span",
       "coordinates": [
         [
           35.6896,
@@ -693,7 +693,7 @@
           139.3423
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "tokyu-toyoko",
@@ -725,7 +725,7 @@
           139.6165
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     },
     {
       "id": "tokyu-denentoshi",
@@ -753,7 +753,7 @@
           139.5171
         ]
       ],
-      "updatedAt": "2025-12-27T21:13:39.323Z"
+      "updatedAt": "2025-12-27T23:14:27.281Z"
     }
   ]
 }
